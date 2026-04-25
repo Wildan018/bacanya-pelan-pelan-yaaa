@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Sayang ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd6e0, #ffe9ec);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    color: #ff6b81;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff6b81;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #ff4757;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.heart {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Untuk Ayuni ❤️</h1>
+    <p id="text">
+        Sayangggg, aku tau kamu lagi cape dan gaa enak badan
+    </p>
+
+    <button onclick="nextText()">Klik pelan yaa 🤍</button>
+</div>
+
+<script>
+const messages = [
+"Sayangggg, aku tau kamu lagi capek dan gak enak badan.",
+"Lagi PMS itu emang bikin semuanya terasa lebih berat yaa 🫂",
+"Kadang mood naik turun, badan juga gaa nyaman",
+"Tapi gaa apa-apa kok sayangggg, itu hal yang wajar",
+"Kamu gaa harus kuat terus hari ini",
+"Kalau mau istirahat, yaa istirahat aja yaa sayangggg 🤍",
+"Aku cuma mau kamu tau",
+"Kamu tetap berharga, tetap cantik, tetap spesial buat aku 💖",
+"Aku selalu ada buat kamu, walaupun cuma lewat ini",
+"Semoga sayang cepat ngerasa lebih baik yaa 🌸"
+];
+
+let i = 0;
+
+function nextText() {
+    i++;
+    if(i < messages.length){
+        document.getElementById("text").innerText = messages[i];
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
